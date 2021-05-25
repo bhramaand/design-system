@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import AlertComponent from './alertComponent';
 import { AlertServiceConfig, PubSubServiceProps } from './alertService';
-import { ToastProps } from '@/index.type';
+import { ToastProps } from '@innovaccer/design-system';
 
 type autoHiderBarProp = { style: object };
 export interface AlertServiceToastProps extends ToastProps {

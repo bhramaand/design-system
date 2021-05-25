@@ -24,14 +24,10 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "core/*"
-      ]
     }
   },
   "exclude": [
     "dist",
-    "utils",
     "build",
     "node_modules",
     ".github"

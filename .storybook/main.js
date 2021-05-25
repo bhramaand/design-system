@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
   "stories": [
-    "../core/components/**/*.story.@(js|jsx|ts|tsx)"
+    "../core/components/**/*.story.@(js|jsx|ts|tsx)",
+    "../utils/src/components/**/*.story.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     /**

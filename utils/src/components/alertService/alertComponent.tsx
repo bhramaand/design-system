@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CSSProperties } from 'react';
-import { Toast } from '@/index';
+import { Toast } from '@innovaccer/design-system';
 import { AlertServiceToastProps } from './alertContainer';
 
 interface AlertProps {

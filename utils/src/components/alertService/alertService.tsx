@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { pubSub } from '../../../utils/alertServiceHelper';
+import { pubSub } from '../../utils/alertServiceHelper';
 import AlertContainer, { AlertServiceToastProps } from './alertContainer';
 const defaultConf = {
   dismissIn: 3000,

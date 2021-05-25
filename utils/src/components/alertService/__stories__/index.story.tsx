@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AlertService } from '@/index';
+import { AlertService } from '../../../index';
 const newAlert = new AlertService();
 const addT = (conf: string) => {
   newAlert.add(JSON.parse(conf));

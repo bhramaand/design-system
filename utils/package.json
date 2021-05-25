@@ -1,0 +1,6 @@
+{
+  "name": "utils",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/utils/index.type.d.ts"
+}

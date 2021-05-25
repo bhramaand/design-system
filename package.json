@@ -6,7 +6,8 @@
   "module": "dist/index.esm.js",
   "types": "dist/core/index.type.d.ts",
   "directories": {
-    "css": "css"
+    "css": "css",
+    "utils":"utils"
   },
   "scripts": {
     "chromatic": "chromatic",
@@ -23,8 +24,8 @@
     "build-css": "gulp --gulpfile css/gulpfile.js build",
     "clean-css": "gulp --gulpfile css/gulpfile.js clean",
     "watch-css": "gulp --gulpfile css/gulpfile.js build && gulp --gulpfile css/gulpfile.js watch",
-    "build-js": "rm -rf dist/.lib && rollup -c",
-    "build-type": "rm -rf .lib && tsc -b tsconfig.type.json",
+    "build-js": "rm -rf dist/.lib && rm -rf utils/dist/.lib && rollup -c",
+    "build-type": "rm -rf .lib  && rm -rf utils/dist/.lib && tsc -b tsconfig.type.json",
     "build": "npm run build-css && npm run build-js",
     "version": "./scripts/version.sh"
   },

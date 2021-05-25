@@ -120,4 +120,77 @@ export default [{
     banner: banner(),
     sourcemap: true,
   }
+},
+ {
+  input: './utils/src/index.tsx',
+
+  // Specify here external modules which you don't want to include in your bundle (for instance: 'lodash', 'moment' etc.)
+  // https://rollupjs.org/guide/en#external-e-external
+  external: ['react', 'react-dom'],
+
+  plugins: [
+    alias({
+      entries: [
+        { find: '@', replacement: path.resolve('./core') },
+      ]
+    }),
+    
+    // Allows node_modules resolution
+    resolve({ extensions, preferBuiltins: false }),
+
+    // Allow bundling cjs modules. Rollup doesn't understand cjs
+    commonjs(),
+
+    // Compile TypeScript/JavaScript files
+    babel({ extensions, include: ['core/**/*','utils/src/**/*'] }),
+
+    json(),
+
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })  
+  ],
+
+  output: formats.map(format => ({
+    file: `utils/dist/index.${format}.js`,
+    format,
+    name: `InnovaccerDesignSystemUtils`,
+    globals: globals(),
+  }))
+}, {
+  input: './utils/src/index.tsx',
+
+  external: ['react', 'react-dom', 'classnames', 'react-popper'],
+
+  plugins: [
+    alias({
+      entries: [
+        { find: '@', replacement: path.resolve('./core') },
+      ]
+    }),
+
+    json(),
+    
+    // Allows node_modules resolution
+    resolve({ extensions }),
+    
+    typescript({
+      typescript: require('ttypescript'),
+      tsconfig: path.resolve(__dirname, './utils/tsconfig.type.json'),
+    }),
+
+    // Allow bundling cjs modules. Rollup doesn't understand cjs
+    commonjs(),
+
+    // Compile TypeScript/JavaScript files
+    babel({ extensions, include: ['core/**/*','utils/src/**/*'] }),
+  ],
+
+  output: {
+    dir: 'utils/dist',
+    format: 'umd',
+    name: `innoUtils`,
+    globals: globals(),
+    sourcemap: true,
+  }
 }];
